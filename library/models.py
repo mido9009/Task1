@@ -35,6 +35,7 @@ class Book(models.Model):
     autor = models.ForeignKey(Author, related_name="Book_author", on_delete=models.CASCADE)
     publication_date = models.DateTimeField(default=timezone.now)
     price = models.IntegerField()
+    review = models.ForeignKey("Review", related_name="Book_review", on_delete=models.SET_NULL,null=True)
 
 class Review(models.Model):
     reviewer_name = models.CharField(max_length=20)
